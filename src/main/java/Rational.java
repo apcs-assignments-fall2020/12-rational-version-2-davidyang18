@@ -69,22 +69,25 @@ public class Rational
     // Returns whether or not the Rational is currently simplified
     // or not
     public boolean isSimplified() { 
-        return false; // YOUR CODE HERE
+        return (greatestCommonFactor(this.numerator, this.denominator) == 1); 
     }
 
     // Calculates the double value of our Rational
     public double calculateDecimalValue() { 
-        return 0.0; // YOUR CODE HERE
+        return ((double)this.numerator / this.denominator);
     }
 
     // Returns the Rational we get from raising  the rational number to an integer power
     public Rational pow(int exponent) {
-        return null; // YOUR CODE HERE
+        int newNumerator = (int) (Math.pow(this.numerator, exponent));
+        int newDenominator = (int) (Math.pow(this.denominator, exponent));
+        Rational x = new Rational(newNumerator, newDenominator);
+        return x;
     }
 
     // Checks to see if either the numerator or denominator match a given number
     public boolean matches(int x) {
-        return false; // YOUR CODE HERE
+        return (this.numerator == x || this.denominator == x);
     }
 
 
@@ -94,18 +97,21 @@ public class Rational
     // Methods you'll write for homework:
     // Returns whether or not the Rational is a negative number
     public boolean isNegative() { 
-        return false; // YOUR CODE HERE
+        return (this.numerator <= 0) && (this.denominator >= 0) || (this.denominator <= 0 && this.numerator >= 0);
     }
 
     // Calculates the reciprocal of a Rational number.
     // The reciprocal of 3/4 is 4/3, the reciprocal of 1/2 is 2/1
     public Rational reciprocal() {
-        return null; // YOUR CODE HERE
+        int newNumerator = this.denominator;
+        int newDenominator = this.numerator;
+        Rational x = new Rational(newNumerator, newDenominator);
+        return x;
     }
 
     // Checks whether the current Rational is the exactly the same as other
     public boolean equals(Rational other) {
-        return false; // YOUR CODE HERE
+        return (this.numerator == other.numerator && this.denominator == other.denominator);
     }
 
 
